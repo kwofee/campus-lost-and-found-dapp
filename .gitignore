@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+.vscode/
+node_modules/
+*.log
+
+# Never commit secrets
+.env
+*.key
+private-key*
+seed-phrase*

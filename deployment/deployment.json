@@ -1,0 +1,15 @@
+{
+  "application": "Campus Lost-and-Found Claim Registry",
+  "network": "Ganache",
+  "chainId": 1337,
+  "rpcUrl": "http://127.0.0.1:7545",
+  "compiler": "Solidity 0.8.20",
+  "evmVersion": "paris",
+  "contractAddress": "0x7eBf84506F22dbE1baDE780DD12733F02b921735",
+  "deploymentTransactionHash": "0x7b88b74f7864582e601bc8e0967ea4caa15b6655f23de6df1b049e3a9e1fcb15",
+  "deploymentBlock": 1,
+  "deploymentGasUsed": 1928997,
+  "sampleReportTransactionHash": "0xedbfdb5c3f7845e811e8f32a33c8cf8b686cc140c83bd7efe923351589b43dc9",
+  "sampleReportBlock": 2,
+  "sampleReportGasUsed": 191215
+}

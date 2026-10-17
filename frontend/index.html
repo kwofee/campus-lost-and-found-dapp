@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Lost-and-Found Registry</title>
+  <meta name="description" content="A decentralized campus lost-and-found claim registry.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="LostLoop home">
+      <span class="brand-mark">L</span>
+      <span>LostLoop</span>
+    </a>
+    <button id="connectButton" class="button button-primary">Connect MetaMask</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Ethereum + Ganache</p>
+        <h1>Return lost things<br><span>with a transparent trail.</span></h1>
+        <p class="hero-copy">Report found campus items, request a claim, and record the return without exposing personal information.</p>
+      </div>
+      <aside class="connection-card" aria-live="polite">
+        <p class="label">Wallet status</p>
+        <strong id="walletStatus">Not connected</strong>
+        <p id="networkStatus">Expected network: Ganache (1337)</p>
+        <div class="address-row">
+          <input id="contractAddress" aria-label="Contract address" placeholder="Paste deployed contract address">
+          <button id="loadContractButton" class="button button-secondary">Load</button>
+        </div>
+        <small id="contractStatus">Deploy the contract in Remix, then paste its address here.</small>
+      </aside>
+    </section>
+
+    <section class="metrics" aria-label="Registry summary">
+      <div><span id="itemCount">0</span><small>on-chain listings</small></div>
+      <div><span id="availableCount">0</span><small>available items</small></div>
+      <div><span id="returnedCount">0</span><small>recorded returns</small></div>
+    </section>
+
+    <section class="workspace">
+      <article class="panel">
+        <div class="section-heading">
+          <p class="eyebrow">New listing</p>
+          <h2>Report a found item</h2>
+        </div>
+        <form id="reportForm">
+          <label>Item name<input id="itemName" required minlength="3" maxlength="80" placeholder="Silver water bottle"></label>
+          <label>Description<textarea id="description" required minlength="5" maxlength="300" placeholder="Sticker near the base; no personal details"></textarea></label>
+          <label>Found location<input id="foundLocation" required minlength="3" maxlength="120" placeholder="Library, second floor"></label>
+          <button class="button button-primary" type="submit">Publish on-chain</button>
+        </form>
+      </article>
+
+      <article class="panel panel-wide">
+        <div class="section-heading inline-heading">
+          <div>
+            <p class="eyebrow">Live registry</p>
+            <h2>Found items</h2>
+          </div>
+          <button id="refreshButton" class="button button-ghost">Refresh data</button>
+        </div>
+        <div id="itemsGrid" class="items-grid">
+          <div class="empty-state">Connect MetaMask and load the deployed contract to retrieve blockchain data.</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="privacy-note">
+      <strong>Privacy by design</strong>
+      <p>Everything written to a blockchain is permanent. Use only a short, non-sensitive claim reference. Never enter names, phone numbers, passwords, IDs, seed phrases, or private keys.</p>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
